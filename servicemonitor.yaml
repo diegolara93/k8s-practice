@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: practice-k8s
+  namespace: monitoring
+  labels:
+    release: kps
+spec:
+  selector:
+    matchLabels:
+      app: practice-k8s        
+  namespaceSelector:
+    matchNames:
+      - default                
+  endpoints:
+    - port: http               
+      path: /metrics
+      interval: 15s
