@@ -20,10 +20,12 @@ Spins up a local Kubernetes cluster with Prometheus + Grafana and visualize CPU 
 ```
 ---
 ## Visualize CPU usage
+
 Once you've got it launched go to http://localhost:3000/ and then
 create a new dashboard and use the following PromQL query:
 `rate(container_cpu_usage_seconds_total{pod=~"practice-k8s.*"}[5m])`
 You should then see a graph similar to:
+
 ![alt text](graph.png)
 ---
 ## TODO:
